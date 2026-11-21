@@ -43,6 +43,9 @@ jobs:
 
         #TODO: deb and rpm packages need to be build
       - name: Build Linux
+        env:
+          CFLAGS: -march=x86-64
+          CXXFLAGS: -march=x86-64
         run: flutter build linux --release --dart-define-from-file=pili_release.json --no-pub
 
       - name: Package .tar.gz
